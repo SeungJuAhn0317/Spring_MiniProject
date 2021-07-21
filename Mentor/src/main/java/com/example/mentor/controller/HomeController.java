@@ -21,4 +21,9 @@ public class HomeController {
 	public String userBoard() {
 		return "userboard/write";
 	}
+	
+	@GetMapping("/youtube")
+	public String youtube() {
+		return "youtube";
+	}
 }
