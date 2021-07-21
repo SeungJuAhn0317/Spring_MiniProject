@@ -460,7 +460,6 @@
 	 function onAjaxError (e){
         alert("[가이드]사진 업로더할 서버URL셋팅이 필요합니다.-onAjaxError"+e._response.responseText);
     }
-
  	/**
       * 이미지 업로드 시작
       * 확인 버튼 클릭하면 호출되는 msg

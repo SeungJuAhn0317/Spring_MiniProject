@@ -24,6 +24,6 @@ public class HomeController {
 	
 	@GetMapping("/youtube")
 	public String youtube() {
-		return "youtube";
+		return "youtube/youtube";
 	}
 }
