@@ -7,8 +7,7 @@
 <body>
 	<div id="wrapper">
 		<nav class="navbar navbar-inverse" th:replace="common/nav"></nav>
-		<textarea class="form=control" rows="20" id="bo_content">에디터에 기본으로 삽입할 글(수정 모드)이 없다면 이 value 값을 지정하지 않으시면됩니다.</textarea>
-		<!--<div class="jumbotron">
+		<div class="jumbotron">
 			<div class="container text-center">
 				<form method="post" action="/userboard/write">
 					<div class="form-group">
@@ -17,33 +16,13 @@
 					</div>
 					<div class="form-group">
 						<label for="content">Content:</label>
-						<textarea class="form-control" rows="5" name="content" id="content">
-						</textarea>
+						<textarea class="form=control" rows="10" cols="120" id="bo_content"></textarea>
 					</div>
 					<button type="button" id="complete" class="btn btn-primary btn-block">
 						글쓰기
 					</button>
 				</form>
-				<script>
-					function googleTranslateElementInit() {
-						new google.translate.TranslateElement({
-							pageLanguage: 'ko',
-							includedLanguages: 'ko,en',
-							//layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-							autoDisplay: false
-						}, 'google_translate_element');
-					}
-					setTimeout(function () {
-						$("select.goog-te-combo").addClass("tx-select-top");
-					}, 1000);
-				</script>
-				<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-			</div>
-
-			<div id="google_translate_element" class="hd_lang"
-				style="float: right;position: relative;top: -4px;margin-left: 10px;"></div>
-		</div>-->
-
+		</div>
 		<footer th:replace="common/footer"></footer>
 	</div><br><br>
 
