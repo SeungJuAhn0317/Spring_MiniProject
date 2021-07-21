@@ -4,33 +4,29 @@
 <head th:replace="common/head"></head>
 
 <body>
-<nav class="navbar navbar-inverse" th:replace="common/nav"></nav>
-<div class="jumbotron">
-	<div class="container text-center">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="userboard : ${list}" th:attr="id=${.id}">
-					<td th:text="${userboard.id}"></td>
-					<td th:text="${userboard.title}"></td>
-					<td th:text="${userboard.userId}"></td>
-				</tr>
-			</tbody>
-		</table>
-		<button type="button" class="btn btn-primary btn-block" id="write">글쓰기</button>
-	</div>
-</div><br><br>
-
-	<footer class="container-fluid text-center" th:replace="common/footer">
-		<p>Footer Text</p>
-	</footer>
-
+	<nav class="navbar navbar-inverse" th:replace="common/nav"></nav>
+	<div class="jumbotron">
+		<div class="container text-center">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>제목</th>
+						<th>작성자</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="userboard : ${list}" th:attr="id=${.id}">
+						<td th:text="${userboard.id}"></td>
+						<td th:text="${userboard.title}"></td>
+						<td th:text="${userboard.userId}"></td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="button" class="btn btn-primary btn-block" id="write">글쓰기</button>
+		</div>
+	</div><br><br>
+	
 </body>
 <script>
 	$("#write").click(function () {
@@ -43,4 +39,5 @@
 		return false;
 	});
 </script>
+
 </html>
