@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head th:replace="common/head">
+</head>
+<body>
+	<nav class="navbar navbar-inverse" th:replace="common/nav"></nav>
+
+	<form action="/board/search" method="GET">
+		<div>
+			<input name="keyword" type="text" placeholder="검색어를 입력해주세요.">
+		</div>
+
+		<button>검색하기</button>
+		<button id="write">글쓰기</button>
+	</form>
+	<script>
+	$("#write").click(function() {
+			location = "/board/write";
+			return false;
+		});
+	</script>
+</body>
+</html>
