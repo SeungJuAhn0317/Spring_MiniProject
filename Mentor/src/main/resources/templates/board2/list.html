@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head th:replace="common/head">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse" th:replace="common/nav"></nav>
+
+	<div class="jumbotron">
+		<div class="container text-center">
+			<ul class="nav container">
+				<li class="nav-item"><a class="nav-link active"	aria-current="page" href="/board/list">요리 & 레시피</a></li>
+				<li class="nav-item"><a class="nav-link" href="/board2/list">조합추천</a></li>
+				</ul>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<h3>조합추천 게시판</h3>
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>조회수</th>
+						</tr>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="board : ${list}" th:attr="id=${board.id}">
+						<td th:text="${board.id}"></td>
+						<td th:text="${board.title}"></td>
+						<td th:text="${board.userId}"></td>
+						<td th:text="${board.views}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<footer class="container-fluid text-center" th:replace="common/footer">
+	</footer>
+	<script>
+		$("tr").click(function() {
+			var id = $(this).attr("id");
+			location = "/board2/" + id;
+
+			return false;
+		});
+	</script>
+
+</body>
+</html>

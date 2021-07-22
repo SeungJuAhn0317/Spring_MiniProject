@@ -56,14 +56,13 @@ public class BoardController {
 //		model.addAttribute("list", list);
 		return "board/search";
 	}
-
 	
 	@GetMapping("/board/search")
 	public String search(@RequestParam(value="keyword") String keyword, Model model) {
 		List<TestBoard> list = boardRepository.findByTitleContaining(keyword);
 		model.addAttribute("list", list);
 		return "board/list";
-	}
+	}	
 	
 	@GetMapping("/board/{id}")
 	public String boardView(Model model, @PathVariable("id") long id) {
