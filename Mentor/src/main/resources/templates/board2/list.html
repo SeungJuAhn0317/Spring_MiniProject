@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head th:replace="common/head">
+
+<head th:replace="/common/head">
 </head>
+
 <body>
+	<div id="wrapper">
+		<nav class="navbar navbar-inverse" th:replace="/common/nav"></nav>
 
-	<nav class="navbar navbar-inverse" th:replace="common/nav"></nav>
-
-	<div class="jumbotron">
-		<div class="container text-center">
-			<ul class="nav container">
-				<li class="nav-item"><a class="nav-link active"	aria-current="page" href="/board/list">¿ä¸® & ·¹½ÃÇÇ</a></li>
-				<li class="nav-item"><a class="nav-link" href="/board2/list">Á¶ÇÕÃßÃµ</a></li>
+		<div class="jumbotron" style="height: 600px;">
+			<div class="container text-center">
+				<ul class="nav nav-pills">
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="/board/list">ìš”ë¦¬ & ë ˆì‹œí”¼</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/board2/list">ì¡°í•©ì¶”ì²œ</a></li>
 				</ul>
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<h3>Á¶ÇÕÃßÃµ °Ô½ÃÆÇ</h3>
-							<th>¹øÈ£</th>
-							<th>Á¦¸ñ</th>
-							<th>ÀÛ¼ºÀÚ</th>
-							<th>Á¶È¸¼ö</th>
+							<h3>ìš”ë¦¬ & ë ˆì‹œí”¼ ê²Œì‹œíŒ</h3>
+							<th>ë²ˆí˜¸</th>
+							<th>ì œëª©</th>
+							<th>ì‘ì„±ì</th>
+							<th>ì¡°íšŒìˆ˜</th>
 						</tr>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="board : ${list}" th:attr="id=${board.id}">
-						<td th:text="${board.id}"></td>
-						<td th:text="${board.title}"></td>
-						<td th:text="${board.userId}"></td>
-						<td th:text="${board.views}"></td>
-					</tr>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<tr th:each="board : ${list}" th:attr="id=${board.id}">
+							<td th:text="${board.id}"></td>
+							<td th:text="${board.title}"></td>
+							<td th:text="${board.userId}"></td>
+							<td th:text="${board.views}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
+		<footer th:replace="common/footer"></footer>
 	</div>
-
-	<footer class="container-fluid text-center" th:replace="common/footer">
-	</footer>
 	<script>
 		$("tr").click(function() {
 			var id = $(this).attr("id");
-			location = "/board2/" + id;
+			location = "/board/" + id;
 
 			return false;
 		});
 	</script>
 
 </body>
+
 </html>

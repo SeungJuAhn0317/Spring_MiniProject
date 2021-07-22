@@ -44,7 +44,7 @@ public class UserController {
 
 	@GetMapping("/signin")
 	public String signin() {
-		return "signin";
+		return "login";
 	}
 
 	@PostMapping("/signin")
@@ -55,7 +55,7 @@ public class UserController {
 			for( ObjectError error : list ) {
 				System.out.println(error);
 			}
-			return "/signin";
+			return "/login";
 		}
 		TestUser dbUser = userRepository.findByEmailAndPwd(user.getEmail(), user.getPwd());
 		if(dbUser != null) {

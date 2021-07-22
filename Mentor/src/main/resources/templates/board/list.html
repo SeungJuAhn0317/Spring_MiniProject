@@ -11,8 +11,9 @@
 		<div class="jumbotron" style="height: 600px;">
 			<div class="container text-center">
 				<ul class="nav nav-pills">
-					<li class="nav-item"><a class="nav-link active" aria-current="page" href="/board/list">요리 & 레시피</a></li>
-				<li class="nav-item"><a class="nav-link" href="/board2/list">조합추천</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="/board/list">요리 & 레시피</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/board2/list">조합추천</a></li>
 				</ul>
 				<table class="table table-hover">
 					<thead>
@@ -38,7 +39,7 @@
 		<footer th:replace="common/footer"></footer>
 	</div>
 	<script>
-		$("tr").click(function() {
+		$("tr").click(function () {
 			var id = $(this).attr("id");
 			location = "/board/" + id;
 

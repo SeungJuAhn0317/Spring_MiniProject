@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.mentor.model.TestBoard;
+import com.example.mentor.model.TestBoard2;
 import com.example.mentor.model.TestUser;
 import com.example.mentor.repository.BoardRepository;
 
@@ -107,4 +109,10 @@ public class BoardController {
 		return "redirect:/board";
 	}
 	
+	@GetMapping("/board/list")
+	public String boardlist(Model model) {
+		List<TestBoard> list = boardRepository.findAll(Sort.by(Sort.Direction.DESC, "views"));
+		model.addAttribute("list", list);
+		return "board/list";
+	}
 }

@@ -1,8 +1,9 @@
 package com.example.mentor.controller;
 
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -11,26 +12,26 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
-	
+
 	@GetMapping("/famous")
 	public String restaurant() {
 		return "map/restaurant";
 	}
-	
+
 	@GetMapping("/smarteditor")
 	public String userBoard() {
 		return "userboard/write";
 	}
-	
+
 	@GetMapping("/youtube")
 	public String youtube() {
 		return "youtube/youtube";
 	}
 
-@RequestMapping(value = "/login")
+	@RequestMapping(value = "/login")
 	public ModelAndView home() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("index");
+		mav.setViewName("login");
 		return mav;
 	}
 }
