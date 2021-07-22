@@ -26,4 +26,11 @@ public class HomeController {
 	public String youtube() {
 		return "youtube/youtube";
 	}
+
+@RequestMapping(value = "/login")
+	public ModelAndView home() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
+	}
 }
