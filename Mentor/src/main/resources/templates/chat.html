@@ -1,0 +1,153 @@
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<title>Chating</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			width: 500px;
+			margin: 0 auto;
+			padding: 25px
+		}
+
+		.container h1 {
+			text-align: left;
+			padding: 5px 5px 5px 15px;
+			color: #FFBB00;
+			border-left: 3px solid #FFBB00;
+			margin-bottom: 20px;
+		}
+
+		.chating {
+			background-color: #000;
+			width: 1000px;
+			height: 400px;
+			overflow: auto;
+		}
+
+		.chating p {
+			color: #fff;
+			text-align: left;
+		}
+
+		input {
+			width: 330px;
+			height: 35px;
+		}
+
+		#yourMsg {
+			display: none;
+		}
+		#sendBtn,
+		#startBtn {
+			background-color: #4e73df;
+			color : #f8f9fc;
+			width: 100px;
+			height: 35px;
+			border: 0px;
+			outline: 0px;
+			border-radius: 5px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Custom fonts for this template-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+
+	<!-- Custom styles for this template-->
+	<link href="/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<script type="text/javascript">
+	var ws;
+
+	function wsOpen() {
+		ws = new WebSocket("ws://" + location.host + "/chating");
+		wsEvt();
+	}
+
+	function wsEvt() {
+		ws.onopen = function (data) {
+			//소켓이 열리면 초기화 세팅하기
+		}
+
+		ws.onmessage = function (data) {
+			var msg = data.data;
+			if (msg != null && msg.trim() != '') {
+				$("#chating").append("<p>" + msg + "</p>");
+			}
+		}
+
+		document.addEventListener("keypress", function (e) {
+			if (e.keyCode == 13) { //enter press
+				send();
+			}
+		});
+	}
+
+	function chatName() {
+		var userName = $("#userName").val();
+		if (userName == null || userName.trim() == "") {
+			alert("사용자 이름을 입력해주세요.");
+			$("#userName").focus();
+		} else {
+			wsOpen();
+			$("#yourName").hide();
+			$("#yourMsg").show();
+		}
+	}
+
+	function send() {
+		var uN = $("#userName").val();
+		var msg = $("#chatting").val();
+		ws.send(uN + " : " + msg);
+		$('#chatting').val("");
+	}
+</script>
+
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-inverse" th:replace="common/nav"></nav>
+		<div id="container" class="container">
+			<h1>채팅</h1>
+			<div id="chating" class="chating">
+			</div><br>
+
+			<div id="yourName">
+				<table class="inputTable">
+					<tr>
+						<th>사용자명&nbsp&nbsp</th>
+						<th><input type="text" name="userName" id="userName"></th>
+						<th>&nbsp&nbsp<button onclick="chatName()" id="startBtn">이름 등록</button></th>
+					</tr>
+				</table>
+			</div>
+			<div id="yourMsg">
+				<table class="inputTable">
+					<tr>
+						<th>메시지&nbsp&nbsp</th>
+						<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
+						<th>&nbsp&nbsp<button onclick="send()" id="sendBtn">보내기</button></th>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<footer th:replace="common/footer"></footer>
+	</div>
+</body>
+
+</html>

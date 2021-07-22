@@ -7,15 +7,18 @@
 <body>
 	<div id="wrapper">
 		<nav class="navbar navbar-inverse" th:replace="/common/nav"></nav>
-
+		<div style="height: 400px;">
+		<div style="text-align : center;">
+			<img src="img/footering.jpg" width="358px" height="82px"/>
+		</div><br>
 		<form action="/board/search" method="GET">
-			<div>
-				<input name="keyword" type="text" placeholder="검색어를 입력해주세요.">
+			<div style="text-align : center;">
+				<button id="search">검색하기</button>
+				<input id="searchment" name="keyword" type="text" placeholder="검색어를 입력해주세요." />
+				<button id="write">글쓰기</button>
 			</div>
-
-			<button>검색하기</button>
-			<button id="write">글쓰기</button>
 		</form>
+		</div>
 		<footer th:replace="common/footer"></footer>
 	</div>
 	<script>
