@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.project.board.model.TestUser;
+import com.example.mentor.model.TestUser;
 
 import lombok.extern.slf4j.Slf4j;
 @Component

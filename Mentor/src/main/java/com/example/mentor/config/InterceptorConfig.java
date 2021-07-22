@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.project.board.interceptor.SignInCheckInterceptor;
+import com.example.mentor.interceptor.SignInCheckInterceptor;
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 	@Autowired

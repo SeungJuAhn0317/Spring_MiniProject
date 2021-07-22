@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.project.board.model.TestUser;
-import com.project.board.repository.UserRepository;
+import com.example.mentor.model.TestUser;
+import com.example.mentor.repository.UserRepository;
 
 @Controller
 public class UserController {
