@@ -49,7 +49,7 @@ public class BoardController {
 		String userId = user.getEmail();
 		board.setUserId(userId);
 		boardRepository.save(board);
-		return "redirect:/board/";
+		return "redirect:/board";
 	}
 	
 	@GetMapping("/board")

@@ -12,7 +12,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(signInCheckInterceptor).addPathPatterns("/board/write");
-		registry.addInterceptor(signInCheckInterceptor).addPathPatterns("/contact");
+		registry.addInterceptor(signInCheckInterceptor).addPathPatterns("/board2/write");
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
 }
